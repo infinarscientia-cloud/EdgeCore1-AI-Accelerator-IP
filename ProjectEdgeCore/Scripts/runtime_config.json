@@ -1,0 +1,122 @@
+{
+  "edgecore1_runtime_version": "1.0",
+  "architecture": {
+    "mac_rows": 256,
+    "mac_cols": 256,
+    "tile_size": 8,
+    "sram_bytes": 524288,
+    "sparsity_thresh": 13
+  },
+  "layers": [
+    {
+      "name": "conv1",
+      "op_type": "Conv",
+      "accelerated_by": "mac_array",
+      "M": 1,
+      "K": 27,
+      "N": 32,
+      "output_scale": 0.023,
+      "output_zero_point": 0,
+      "sparsity_pct": 71.29629629629629
+    },
+    {
+      "name": "dw_conv2",
+      "op_type": "DepthwiseConv",
+      "accelerated_by": "mac_array",
+      "M": 1,
+      "K": 9,
+      "N": 32,
+      "output_scale": 0.018,
+      "output_zero_point": 0,
+      "sparsity_pct": 70.83333333333333
+    },
+    {
+      "name": "pw_conv2",
+      "op_type": "Conv",
+      "accelerated_by": "mac_array",
+      "M": 1,
+      "K": 32,
+      "N": 16,
+      "output_scale": 0.031,
+      "output_zero_point": 0,
+      "sparsity_pct": 75.390625
+    },
+    {
+      "name": "relu6_2",
+      "op_type": "Relu6",
+      "accelerated_by": "risc_v",
+      "M": 1,
+      "K": 1,
+      "N": 1,
+      "output_scale": 1.0,
+      "output_zero_point": 0,
+      "sparsity_pct": 0.0
+    },
+    {
+      "name": "dw_conv3",
+      "op_type": "DepthwiseConv",
+      "accelerated_by": "mac_array",
+      "M": 1,
+      "K": 9,
+      "N": 16,
+      "output_scale": 0.022,
+      "output_zero_point": 0,
+      "sparsity_pct": 70.83333333333333
+    },
+    {
+      "name": "pw_conv3",
+      "op_type": "Conv",
+      "accelerated_by": "mac_array",
+      "M": 1,
+      "K": 16,
+      "N": 24,
+      "output_scale": 0.027,
+      "output_zero_point": 0,
+      "sparsity_pct": 73.17708333333333
+    },
+    {
+      "name": "relu6_3",
+      "op_type": "Relu6",
+      "accelerated_by": "risc_v",
+      "M": 1,
+      "K": 1,
+      "N": 1,
+      "output_scale": 1.0,
+      "output_zero_point": 0,
+      "sparsity_pct": 0.0
+    },
+    {
+      "name": "global_avg",
+      "op_type": "GlobalAveragePool",
+      "accelerated_by": "risc_v",
+      "M": 1,
+      "K": 1,
+      "N": 1,
+      "output_scale": 1.0,
+      "output_zero_point": 0,
+      "sparsity_pct": 0.0
+    },
+    {
+      "name": "classifier",
+      "op_type": "Gemm",
+      "accelerated_by": "mac_array",
+      "M": 1,
+      "K": 24,
+      "N": 1000,
+      "output_scale": 0.001,
+      "output_zero_point": 0,
+      "sparsity_pct": 70.79583333333333
+    },
+    {
+      "name": "softmax",
+      "op_type": "Softmax",
+      "accelerated_by": "risc_v",
+      "M": 1,
+      "K": 1,
+      "N": 1,
+      "output_scale": 1.0,
+      "output_zero_point": 0,
+      "sparsity_pct": 0.0
+    }
+  ]
+}
