@@ -1,7 +1,7 @@
 # EdgeCore-1 — Edge AI Inference Accelerator IP
 
 **Simulation-verified RTL for a 256×256 INT8 systolic AI accelerator.**  
-32.8 TOPS · <185 mW · 28nm · RISC-V · ONNX/TVM · 10M+ tests passing.
+32.8 TOPS · <185 mW · 28nm · RISC-V · ONNX/TVM · RTL verified · 10M+ algorithmic tests.
 
 ---
 
